@@ -88,7 +88,7 @@ class AlertViewController: UIViewController, MKMapViewDelegate {
             let center = CLLocationCoordinate2DMake(Config.defaultMapLat, Config.defaultMapLng)
             
             // Set default zoom            
-            let span = MKCoordinateSpanMake(Config.defaultMapZoom, Config.defaultMapZoom)
+            let span = MKCoordinateSpan.init(latitudeDelta: Config.defaultMapZoom, longitudeDelta: Config.defaultMapZoom)
             
             // Move map and set zoom            
             mapView.setRegion(MKCoordinateRegion(center: center, span: span), animated: true)

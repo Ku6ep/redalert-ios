@@ -37,11 +37,11 @@ class SoundSelectionViewController: UITableViewController {
         }
         
         // Set navigation buttons        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(SoundSelectionViewController.doneTapped(sender:)))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.undo, target: self, action: #selector(SoundSelectionViewController.cancelTapped(sender:)))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.save, target: self, action: #selector(SoundSelectionViewController.doneTapped(sender:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.undo, target: self, action: #selector(SoundSelectionViewController.cancelTapped(sender:)))
         
         // Set bar button appearance        
-        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18), NSAttributedStringKey.foregroundColor: UIColor.red ], for: UIControlState.normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18), NSAttributedString.Key.foregroundColor: UIColor.red ], for: UIControl.State.normal)
     }
     
     func stopAudioPlayer() {
@@ -157,7 +157,7 @@ class SoundSelectionViewController: UITableViewController {
                 let itemIndexPath = IndexPath(row: i, section: 0)
                 
                 // Display sound as unchecked                
-                tableView.cellForRow(at: itemIndexPath)?.accessoryType = UITableViewCellAccessoryType.none
+                tableView.cellForRow(at: itemIndexPath)?.accessoryType = UITableViewCell.AccessoryType.none
             }
         }
         
@@ -168,7 +168,7 @@ class SoundSelectionViewController: UITableViewController {
         self.selection = sound.value
         
         // Display sound as checked            
-        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
         
         // Generate path to sound file        
         self.playSound(file: sound.value)
@@ -230,7 +230,7 @@ class SoundSelectionViewController: UITableViewController {
         cell.textLabel!.text = NSLocalizedString(sound.title, comment: "Sound title translation")
         
         // Set up checkmark if checked        
-        cell.accessoryType = (sound.selected) ? UITableViewCellAccessoryType.checkmark : UITableViewCellAccessoryType.none
+        cell.accessoryType = (sound.selected) ? UITableViewCell.AccessoryType.checkmark : UITableViewCell.AccessoryType.none
         
         // RTL cities in case device language is Hebrew        
         if (Localization.isRTL()) {

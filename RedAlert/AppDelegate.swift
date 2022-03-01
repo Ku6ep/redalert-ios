@@ -13,7 +13,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UIAlertViewDelegate, UNUserNotificationCenterDelegate {
     var window: UIWindow?
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // iOS 8 notifications iOS 10 support
         if #available(iOS 10, *) {
             // For in-app notifications
@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIAlertViewDelegate, UNUs
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         // Ignore background pushes        
-        if (application.applicationState != UIApplicationState.active) {
+        if (application.applicationState != UIApplication.State.active) {
             return
         }
         

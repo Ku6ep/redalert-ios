@@ -46,7 +46,7 @@ class AlertTableViewController: UITableViewController, UIAlertViewDelegate {
         
         // Auto cell height
         self.tableView.estimatedRowHeight = 65.0
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
     
     func checkForUpdates() {
@@ -139,7 +139,7 @@ class AlertTableViewController: UITableViewController, UIAlertViewDelegate {
         self.imSafe = xib.object(at: 0) as! UIView
         
         // Set auto resize mode when rotating phone so only width changes        
-        self.imSafe.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        self.imSafe.autoresizingMask = UIView.AutoresizingMask.flexibleWidth
         
         // Onclick-handler        
         self.imSafe.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AlertTableViewController.safeButtonTapped(recognizer:))))
@@ -150,7 +150,7 @@ class AlertTableViewController: UITableViewController, UIAlertViewDelegate {
             tableView.addSubview(self.imSafe)
             
             // Calculate margin from bottom of screen            
-            let insets = UIEdgeInsetsMake(0, 0, Config.imSafeButtonHeight, 0)
+            let insets = UIEdgeInsets.init(top: 0, left: 0, bottom: Config.imSafeButtonHeight, right: 0)
             
             // Prevent tableView contents from being hidden by overlay (also for scrollbar)            
             tableView.contentInset = insets
@@ -210,7 +210,7 @@ class AlertTableViewController: UITableViewController, UIAlertViewDelegate {
     
     func addPullToRefresh() {
         // Set selector function to reload alerts        
-        pullToRefresh.addTarget(self, action: #selector(AlertTableViewController.reloadRecentAlerts), for: UIControlEvents.valueChanged)
+        pullToRefresh.addTarget(self, action: #selector(AlertTableViewController.reloadRecentAlerts), for: UIControl.Event.valueChanged)
         
         // Unwrap variable        
         if let tableView = tableView {
